@@ -1,5 +1,5 @@
 menu =dict({ 
-    "Pan": {
+    "Panes": {
         "Productos":list([
             {"nombre":"Pan blanco","valor": 2.000},
             {"nombre":"Pan integral", "valor": 3.000},
@@ -66,7 +66,7 @@ menu =dict({
 
 
 #mostrar el menu 
-print ("Bienvenido a Panderia ElbuenPan")
+print ("Sea usted bienvenido a Panderia ElbuenPan")
 print ("selecione la categoria de productos que desea adquirir")
 listaCategoria = list(menu. keys())
 for i, val in enumerate(menu.keys()):
@@ -78,6 +78,8 @@ productosCategoria=datosCategoria["Productos"]
 promocionesCategoria=datosCategoria["promociones"]
 
 print(f"usuario usted selecciono la categoria {listaCategoria[opcionCategoria]} ")
+
+
 
 
 
