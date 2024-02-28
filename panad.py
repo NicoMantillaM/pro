@@ -65,6 +65,21 @@ menu =dict({
 })
 
 
+#mostrar el menu 
+print ("Bienvenido a Panderia ElbuenPan")
+print ("selecione la categoria de productos que desea adquirir")
+listaCategoria = list(menu. keys())
+for i, val in enumerate(menu.keys()):
+    print(f"       {i}. {val}")
+
+opcionCategoria = int(input())
+datosCategoria = menu.get(listaCategoria[opcionCategoria])
+productosCategoria=datosCategoria["Productos"]
+promocionesCategoria=datosCategoria["promociones"]
+
+print(f"usuario usted selecciono la categoria {listaCategoria[opcionCategoria]} ")
+
+
 
 
 
