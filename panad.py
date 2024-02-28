@@ -66,8 +66,8 @@ menu =dict({
 
 
 #mostrar las opciones de categorias
-print ("Sea usted bienvenido a Panderia ElbuenPan")
-print ("selecione la categoria de productos que desea adquirir")
+print ("Sea usted bienvenido a Panaderia ElbuenPan")
+print ("seleccione la categoria de productos que desea adquirir")
 listaCategoria = list(menu. keys())
 for i, val in enumerate(menu. keys()):
     print(f"       {i}. {val}")
@@ -78,10 +78,17 @@ opcionCategoria = int(input())
 datosCategoria = menu.get(listaCategoria[opcionCategoria])
 productosCategoria=datosCategoria["Productos"]
 
+
+
 #correcion segun clase
-print(f"seleccione el producto de la categoria{listaCategoria[opcionCategoria]}")
+print(f"seleccione el producto de la categoria{listaCategoria[opcionCategoria]} que deseas comprar")
+precioProd = ["valor"]
 for i, val in enumerate(productosCategoria):
-  print(f"{i}. {val}")
+  nombre = val["nombre"]
+  valor = val["valor"]
+
+  print(f"{i} {nombre} con precio de {valor}")
+
 opcionproducto = int(input())
 datosCategoria = menu.get(listaCategoria[opcionCategoria])
 promocionesProducto=datosCategoria["promociones"]
@@ -90,15 +97,29 @@ promocionesProductos = list()
 for val in promocionesProducto:
     if (val.get("codigo") == opcionproducto):
         promocionesProductos.append(val)
-
 if (len(promocionesProductos) == 0):
     print(f"No hay promociones para el producto{datosCategoria['Productos'][opcionproducto]}")   
 else:  
     print(f"Promociones del producto{datosCategoria['Productos'][opcionproducto]}") 
     print (promocionesProducto) 
 
+        
+#preguntar que cantidad de productos desea adquirir
+while True:
+    n= int(input("Ingrese la cantidad del producto que desea adquirir: "))
+    if n >= 1:
+        break
 
- 
+print(f"Usted desea adquirir {n} unidad/es del producto")
+
+dinero = int(input("ingrese la cantidad de dinero disponible: "))
+if dinero >= valor:
+   vueltos = dinero-valor
+   print(f"Usted compro el producto '{opcionproducto}' con valor de ${valor}, sus vueltos son ${vueltos}")
+else: 
+    print(f"lo sentimos el producto '{opcionproducto}' con un valor de ${valor}, esta fuera de su presupuesto")
+
+   
 
 
 
