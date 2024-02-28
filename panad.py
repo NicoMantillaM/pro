@@ -90,6 +90,10 @@ for producto in productosCategoria:
 print ("\npromociones disponibles:")  
 for promocion in promocionesCategoria:
     print("- Nombre:", promocion["nombre"], "| Valor:", promocion["valor"]) 
+
+#permitir al usuario elegir el producto o la promocion de la categoria
+escogProductoPromo = input("Seleccione el número del producto/promoción que desea adquirir:")
+
  
 
 
