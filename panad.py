@@ -41,4 +41,31 @@ menu =dict({
         
     },
 
+     "Galletas": {
+        "Productos":list([
+            {"nombre":"Galletas de chocolate","valor": 1.400},
+            {"nombre":"Galletas de avena", "valor": 1.200},
+            {"nombre":"Galletas de mantequilla", "valor":1.000},
+            {"nombre":"Galletas de jengibre", "valor":1.500},
+            {"nombre":"Galletas de almendras", "valor":1.200},
+            {"nombre":"Galletas de nueces", "valor":1.500},
+            {"nombre":"Galletas de coco", "valor":1.000},
+            {"nombre":"Galletas de pasas", "valor":1.300},
+            {"nombre":"Galletas de miel", "valor":1.500},
+            {"nombre":"Galletas de vainilla", "valor":1.200}
+        ]),
+
+        "promociones":list([ 
+            {"codigo": 0, "nombre": "compre 6", "valor":5.000},
+            {"codigo": 1, "nombre": "compre 3", "valor":3.900}
+         ]),
+     
+    },
+    
+})
+
+
+
+
+
 
