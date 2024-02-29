@@ -14,8 +14,8 @@ menu =dict({
         ]),
 
         "promociones":list([ 
-            {"codigo": 0, "promocion": "compre 5", "valor":7900},
-            {"codigo": 1, "promocion": "compre 3", "valor":5200}
+            {"codigo": 0, "promocion": "desc5", "balor":0.35},
+            {"codigo": 1, "promocion": "desc6", "balor":0.15}
          ])
 
     },
@@ -35,8 +35,8 @@ menu =dict({
         ]),
 
         "promociones":list([ 
-            {"codigo": 0, "promocion": "compre 4", "valor":8000},
-            {"codigo": 1, "promocion": "compre 7", "valor":10000}
+            {"codigo": 0, "promocion": "desc3", "balor":0.20},
+            {"codigo": 1, "promocion": "desc4", "balor":0.25}
          ])
         
     },
@@ -56,8 +56,8 @@ menu =dict({
         ]),
 
         "promociones":list([ 
-            {"codigo": 0, "promocion": "compre 6", "valor":5000},
-            {"codigo": 1, "promocion": "compre 3", "valor":3000}
+            {"codigo": 0, "promocion": "desc1", "balor":0.17},
+            {"codigo": 1, "promocion": "desc2", "balor":0.23}
          ]),
      
     },
@@ -89,33 +89,53 @@ for i, val in enumerate(productosCategoria):
 opcionproducto = int(input())
 
 muestra = productosCategoria [opcionproducto]. get ("nombre")
+muestrap= productosCategoria [opcionproducto]. get ("valor")
+
 
 datosCategoria = menu.get(listaCategoria[opcionCategoria])
 promocionesProducto=datosCategoria["promociones"]
 
+
 #preguntar que cantidad de productos desea adquirir
 print ("Ingrese la cantidad de unidades del producto que desea adquirir: ")
 cantidad = int(input())
-vari= vale*cantidad
 promocionesProductos = list()
 
 for val in promocionesProducto:
     if (val.get("codigo") == opcionproducto):
         promocionesProductos.append(val)
+descu= val["promocion"]
+valos= val["balor"]
+des=int(valos*100)
+vari= muestrap*cantidad
+pres1= vari*valos
+pres2= vari-pres1
+
 
 if (len(promocionesProductos) == 0):
     print(f"No hay promociones para el producto {muestra}")   
     print ("Su producto cuesta : $",vari)
 else:  
     print(f"Promociones del producto{muestra}") 
-    print (promocionesProducto) 
+    print(f"el producto{muestra} tiene {descu} del",des,  "% de descuento")
+    print (f"Desea aplicar el descuento disponible para {muestra}?, Ingrese 1, Si su opcion es Si, Ingrese 2, Si su opcion es No ")
+deci= int(input())
+if deci== 1:
+    print("Usted escogio aplicar el descuento al producto" )
+    print("valor sin descuento: ", vari )
+    print("valor con descuento: ",int(pres2) )
+    vari= int(pres2)
+else:
+    print("valor sin descuento: ", vari )
+
 
 dinero = int(input ("ingrese la cantidad de dinero disponible: "))
 vueltos = dinero-vari
 if dinero >= vari:
-   print(f"Usted compro el producto '{opcionproducto}' con valor de ${vari}, sus vueltos son ${vueltos}")
+   print(f"Usted compro el producto '{muestra}' con valor de ${vari}, sus vueltos son ${vueltos}")
 else: 
-    print(f"lo sentimos el producto '{opcionproducto}' con un valor de ${vari}, esta fuera de su presupuesto")
+    print(f"lo sentimos el producto '{muestra}' con un valor de ${vari}, esta fuera de su presupuesto")
+
 
    
 
