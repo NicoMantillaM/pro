@@ -14,8 +14,8 @@ menu =dict({
         ]),
 
         "promociones":list([ 
-            {"codigo": 0, "nombre": "compre 5", "valor":7900},
-            {"codigo": 1, "nombre": "compre 3", "valor":5200}
+            {"codigo": 0, "promocion": "compre 5", "valor":7900},
+            {"codigo": 1, "promocion": "compre 3", "valor":5200}
          ])
 
     },
@@ -35,8 +35,8 @@ menu =dict({
         ]),
 
         "promociones":list([ 
-            {"codigo": 0, "nombre": "compre 4", "valor":8000},
-            {"codigo": 1, "nombre": "compre 7", "valor":10000}
+            {"codigo": 0, "promocion": "compre 4", "valor":8000},
+            {"codigo": 1, "promocion": "compre 7", "valor":10000}
          ])
         
     },
@@ -56,8 +56,8 @@ menu =dict({
         ]),
 
         "promociones":list([ 
-            {"codigo": 0, "nombre": "compre 6", "valor":5000},
-            {"codigo": 1, "nombre": "compre 3", "valor":3000}
+            {"codigo": 0, "promocion": "compre 6", "valor":5000},
+            {"codigo": 1, "promocion": "compre 3", "valor":3000}
          ]),
      
     },
@@ -79,45 +79,43 @@ datosCategoria = menu.get(listaCategoria[opcionCategoria])
 productosCategoria=datosCategoria["Productos"]
 
 
-
 #correcion segun clase
-print(f"seleccione el producto de la categoria{listaCategoria[opcionCategoria]} que deseas comprar")
-precioProd = ["valor"]
+print(f"seleccione el producto de la categoria {listaCategoria[opcionCategoria]} que deseas comprar")
 for i, val in enumerate(productosCategoria):
   nombre = val["nombre"]
-  valor = val["valor"]
-
-  print(f"{i} {nombre} con precio de {valor}")
+  vale = val["valor"]
+  print(f"{i} {nombre} con precio de {vale}")
 
 opcionproducto = int(input())
+
+muestra = productosCategoria [opcionproducto]. get ("nombre")
+
 datosCategoria = menu.get(listaCategoria[opcionCategoria])
 promocionesProducto=datosCategoria["promociones"]
 
+#preguntar que cantidad de productos desea adquirir
+print ("Ingrese la cantidad de unidades del producto que desea adquirir: ")
+cantidad = int(input())
+vari= vale*cantidad
 promocionesProductos = list()
+
 for val in promocionesProducto:
     if (val.get("codigo") == opcionproducto):
         promocionesProductos.append(val)
+
 if (len(promocionesProductos) == 0):
-    print(f"No hay promociones para el producto{datosCategoria['Productos'][opcionproducto]}")   
+    print(f"No hay promociones para el producto {muestra}")   
+    print ("Su producto cuesta : $",vari)
 else:  
-    print(f"Promociones del producto{datosCategoria['Productos'][opcionproducto]}") 
+    print(f"Promociones del producto{muestra}") 
     print (promocionesProducto) 
 
-        
-#preguntar que cantidad de productos desea adquirir
-while True:
-    n= int(input("Ingrese la cantidad del producto que desea adquirir: "))
-    if n >= 1:
-        break
-
-print(f"Usted desea adquirir {n} unidad/es del producto")
-
-dinero = int(input("ingrese la cantidad de dinero disponible: "))
-if dinero >= valor:
-   vueltos = dinero-valor
-   print(f"Usted compro el producto '{opcionproducto}' con valor de ${valor}, sus vueltos son ${vueltos}")
+dinero = int(input ("ingrese la cantidad de dinero disponible: "))
+vueltos = dinero-vari
+if dinero >= vari:
+   print(f"Usted compro el producto '{opcionproducto}' con valor de ${vari}, sus vueltos son ${vueltos}")
 else: 
-    print(f"lo sentimos el producto '{opcionproducto}' con un valor de ${valor}, esta fuera de su presupuesto")
+    print(f"lo sentimos el producto '{opcionproducto}' con un valor de ${vari}, esta fuera de su presupuesto")
 
    
 
